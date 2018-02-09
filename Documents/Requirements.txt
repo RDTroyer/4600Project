@@ -58,102 +58,102 @@
     Type: Functional
     Summary: The user will be able to acquire a link to the original status that an image is from
 
-9.  Name: Gallery_Display
+16.  Name: Gallery_Display
     Type: Functional
     Summary: The user will be able to view images in a gallery view
    
-10. Name: Sortby_Following
+17. Name: Sortby_Following
     Type: Functional
     Summary: The user will be able to view a gallery of images by accounts that they are following
     
-11. Name: Sortby_Liked
+18. Name: Sortby_Liked
     Type: Functional
     Summary: The user will be able to view a gallery of images that they have liked
     
-12. Name: Sortby_Hashtag
+19. Name: Sortby_Hashtag
     Type: Functional
     Summary: The user will be able to view a gallery of images that are marked with a certain hashtag
     
-13. Name: Sortby_User
+20. Name: Sortby_User
     Type: Functional
     Summary: The user will be able to view a gallery of images that have been posted by any particular account
 
-14. Name: Picture_Select
+21. Name: Picture_Select
     Type: Functional
     Summary: The application must be able to select specific picture to display only.
 
-15. Name: Twitter_API
+22. Name: Twitter_API
     Type: Risk
     Summary: The application must be able to connect to the Twitter API.
     
-16. Name: API_Media
+23. Name: API_Media
     Type: Constraint
     Summary: The application must be able to retrieve media from the Twitter API
     
-17. Name: API_Following
+24. Name: API_Following
     Type: Constraint
     Summary: The application must be able to retrieve account IDs that a user is following from the Twitter API
     
-18. Name: API_List
+25. Name: API_List
     Type: Constraint
     Summary: The application must be able to retrieve user created lists from the Twitter API
     
-19. Name: API_Like
+26. Name: API_Like
     Type: Constraint
     Summary: The application must be able to retrieve statuses that an acount has liked from the Twitter API
 
-20. Name: API_Status
+27. Name: API_Status
     Type: Constraint
     Summary: The application must be able to retrieve statuses from the Twitter API
     
-21. Name: API_Search
+28. Name: API_Search
     Type: Constraint
     Summary: The application must be able to recieve the results from a Twitter search
     
-22. Name: Password_Secure
+29. Name: Password_Secure
     Type: Risk
     Summary: User's password must be secure and hidden.
 
-23. Name: Search_Button
+30. Name: Search_Button
     Type: Functional
     Summary: Allows the application to search for a specified user.
 
-24. Name: Window_Display 
+31. Name: Window_Display 
     Type: Constraint
     Summary: The application must adjust to the size of the window screen.
 
-25. Name: Internet_Connectivity 
+32. Name: Internet_Connectivity 
     Type: Constrait
     Summary: The application must have a stable internet connection.
 
-26. Name: Download_Mark
+33. Name: Download_Mark
     Type: Functional
     Summary: The user will be able to mark multiple images to be downloaded at once
 
-27. Name: Download_Multiple
+34. Name: Download_Multiple
     Type: Functional
     Summary: The application must be able to download multiple images for download all at once.
 
-28. Name: Album_Create
+35. Name: Album_Create
     Type: Functional
     Summary: The user will be able to create an album for saved pictures.
 
-29. Name: Album_Save
+36. Name: Album_Save
     Type: Functional
     Summary: The user will be able to create be able to save specified pictures in the album.
     
-30. Name: Album_SaveAll
+37. Name: Album_SaveAll
     Type: Functional
     Summary: The user will be able to save all images from an album at once
 
-30. Name: Watermark_Create 
+38. Name: Watermark_Create 
     Type: Constraint
     Summary: The application must be able to create a watermark at the bottom corner if images which will specify the user it come from.
     
-31. Name: Watermark_Add
+39. Name: Watermark_Add
     Type: Functional
     Summary: The application will be able to add the created watermark onto an image being saved
 
-32. Name: Single_Picture_Exit
+40. Name: Single_Picture_Exit
     Type: Functional
     Summary: The application must be able exit out of a selected picture to go back to the gallery.
