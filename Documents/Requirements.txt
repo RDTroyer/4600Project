@@ -78,3 +78,15 @@
     Type: Non-Functional
     Summary: The application must be able to retrieve the selected user's photos from Twitter.
 
+21. Name: Show_Specific_User_Or_Feed
+    Type: Functional
+    Summary: The Application must be able to select a certain twitter user and show only those images. 
+    Conversly there must be a way to show the entirety of the signed in user's feed if a certain user was selected.
+22. Name: Show_Image_Text
+    Type: Functional
+    Summary: The application must be able to show text associated with the picture via clicking a button. The text must not be shown 
+    before such a time. This button will also close the text when clicked again.
+23. Name: Image_Type
+    Type: Constraint
+    Summary: This application will save all image files as a '.jpg' file or as '.gif' for animated gifs.
+    
