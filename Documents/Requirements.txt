@@ -35,7 +35,7 @@
    Summary: The application must be able to select specific picture to display only.
 
 10. Name: Twitter_API
-    Type: Contraint
+    Type: Contraint 
     Summary: The application must be able to connect to Twitter.
 
 11. Name: Password_Secure
