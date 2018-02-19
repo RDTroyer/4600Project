@@ -1,168 +1,217 @@
-1. Name: Twitter_only
-   Type: Constraint
-   Summary: The application will only be using Twitter, not any other social media application.
-
-2. Name: Operating_System
-   Type: constraint
-   Summary: The specific operating system used is Windows 10/
-
-3. Name: Program_Language
-   Type: constraint
-   Summary: Will only use C# and WPF
-
-4. Name: Username_Input
-   Type: Functional
-   Summary:The application must read in a user's username.
-
-5.  Name: Username_Save
-    Type: Functional
-    Summary: The user can choose to save their username
-    
-6.  Name: Username_Encryption
+﻿----------The Basics----------
+1.  Name: Twitter_only
     Type: Constraint
-    Summary: The application will be able to encrypt usernames before saving them
+    Summary: The application will only be using Twitter, not any other social media application.
 
-7.  Name: Name_Decryption
-    Type: Constraint
-    Summary: The application will be able to decrypt saved usernames
-    
-8.  Name: Username_Storage
-    Type: Constraint
-    Summary: The application will save the user's username in an encrypted format
-    
-9. Name: Password_Input
-   Type: Functional
-   Summary:The application must read in a user's password.
+2.  Name: Operating_System
+    Type: constraint
+    Summary: The specific operating system used is Windows 10/
 
-10. Name: Password_Save
-    Type: Functional
-    Summary: The user can choose to save their password
-    
-11. Name: Password_Encryption
-    Type: Constraint
-    Summary: The application will be able to encrypt passwords before saving them
+3.  Name: Program_Language
+    Type: constraint
+    Summary: Will only use C# and WPF
 
-12. Name: Password_Decryption
+4.  Name: Internet_Connectivity 
     Type: Constraint
-    Summary: The application will be able to decrypt saved passwords
-    
-13. Name: Password_Storage
-    Type: Constraint
-    Summary: The application will save the user's password in an encrypted format
-
-14. Name: Download_Picture
-    Type: Functional
-    Summary: The user will be able to download a picture from a given gallery.
-
-15. Name: Link_Status
-    Type: Functional
-    Summary: The user will be able to acquire a link to the original status that an image is from
-
-16.  Name: Gallery_Display
-    Type: Functional
-    Summary: The user will be able to view images in a gallery view
-   
-17. Name: Sortby_Following
-    Type: Functional
-    Summary: The user will be able to view a gallery of images by accounts that they are following
-    
-18. Name: Sortby_Liked
-    Type: Functional
-    Summary: The user will be able to view a gallery of images that they have liked
-    
-19. Name: Sortby_Hashtag
-    Type: Functional
-    Summary: The user will be able to view a gallery of images that are marked with a certain hashtag
-    
-20. Name: Sortby_User
-    Type: Functional
-    Summary: The user will be able to view a gallery of images that have been posted by any particular account
-
-21. Name: Picture_Select
-    Type: Functional
-    Summary: The application must be able to select specific picture to display only.
-
-22. Name: Twitter_API
-    Type: Risk
-    Summary: The application must be able to connect to the Twitter API.
-    
-23. Name: API_Media
-    Type: Constraint
-    Summary: The application must be able to retrieve media from the Twitter API
-    
-24. Name: API_Following
-    Type: Constraint
-    Summary: The application must be able to retrieve account IDs that a user is following from the Twitter API
-    
-25. Name: API_List
-    Type: Constraint
-    Summary: The application must be able to retrieve user created lists from the Twitter API
-    
-26. Name: API_Like
-    Type: Constraint
-    Summary: The application must be able to retrieve statuses that an acount has liked from the Twitter API
-
-27. Name: API_Status
-    Type: Constraint
-    Summary: The application must be able to retrieve statuses from the Twitter API
-    
-28. Name: API_Search
-    Type: Constraint
-    Summary: The application must be able to recieve the results from a Twitter search
-    
-29. Name: Password_Secure
-    Type: Risk
-    Summary: User's password must be secure and hidden.
-
-30. Name: Search_Button
-    Type: Functional
-    Summary: Allows the application to search for a specified user.
-
-31. Name: Window_Display 
-    Type: Constraint
-    Summary: The application must adjust to the size of the window screen.
-
-32. Name: Internet_Connectivity 
-    Type: Constrait
     Summary: The application must have a stable internet connection.
 
-33. Name: Download_Mark
-    Type: Functional
-    Summary: The user will be able to mark multiple images to be downloaded at once
-
-34. Name: Download_Multiple
-    Type: Functional
-    Summary: The application must be able to download multiple images for download all at once.
-
-35. Name: Album_Create
-    Type: Functional
-    Summary: The user will be able to create an album for saved pictures.
-
-36. Name: Album_Save
-    Type: Functional
-    Summary: The user will be able to create be able to save specified pictures in the album.
-    
-37. Name: Album_SaveAll
-    Type: Functional
-    Summary: The user will be able to save all images from an album at once
-
-38. Name: Watermark_Create 
-    Type: Constraint
-    Summary: The application must be able to create a watermark at the bottom corner if images which will specify the user it come from.
-    
-39. Name: Watermark_Add
-    Type: Functional
-    Summary: The application will be able to add the created watermark onto an image being saved
-
-40. Name: Single_Picture_Exit
-    Type: Functional
-    Summary: The application must be able exit out of a selected picture to go back to the gallery.    
-
-41. Name: Show_Image_Text
-    Type: Functional
-    Summary: The application must be able to show text associated with the picture via clicking a button. The text must not be shown before such a time. This button will also close the text when clicked again.
-
-42. Name: Image_Type
+5.  Name: Image_Type
     Type: Constraint
     Summary: This application will save all image files as a '.jpg' file or as '.gif' for animated gifs.
 
+
+----------Security----------
+6.  Name: Username_Input
+    Type: Functional
+    Summary:The application must read in a user's username.
+
+7.  Name: Username_Save
+    Type: Functional
+    Summary: The user can choose to save their username
+    
+8.  Name: Username_Encryption
+    Type: Constraint
+    Summary: The application will be able to encrypt usernames before saving them
+
+9.  Name: Name_Decryption
+    Type: Constraint
+    Summary: The application will be able to decrypt saved usernames
+    
+10. Name: Username_Storage
+    Type: Constraint
+    Summary: The application will save the user's username in an encrypted format locally on the computer
+    
+11. Name: Password_Input
+    Type: Functional
+    Summary:The application must read in a user's password.
+
+12. Name: Password_Save
+    Type: Functional
+    Summary: The user can choose to save their password
+
+13. Name: Password_Secure
+    Type: Risk
+    Summary: User's password must be secure and hidden using asterisks.
+    
+14. Name: Password_Encryption
+    Type: Constraint
+    Summary: The application will be able to encrypt passwords before saving them
+
+15. Name: Password_Decryption
+    Type: Constraint
+    Summary: The application will be able to decrypt saved passwords
+    
+16. Name: Password_Storage
+    Type: Constraint
+    Summary: The application will save the user's password in an encrypted format locally on the computer
+
+
+----------Picture Functions----------
+17. Name: Picture_Select
+    Type: Functional
+    Summary: The application must be able to select a specific picture to display only.
+
+18. Name: Link_Status
+    Type: Functional
+    Summary: The user will be able to acquire a link to the original status that an image is from.
+
+19. Name: Watermark_Create 
+    Type: Constraint
+    Summary: The application must be able to create a watermark at the bottom corner if images which will specify the user it come from.
+    
+20. Name: Watermark_Add
+    Type: Functional
+    Summary: The application will be able to add the created watermark onto an image being saved
+
+21. Name: Single_Picture_Exit
+    Type: Functional
+    Summary: The application must be able exit out of a selected picture to go back to the gallery.    
+
+22. Name: Show_Image_Text
+    Type: Functional
+    Summary: The application must be able to show text associated with the picture via clicking a button. The text must not be shown before such a time. This button will also close the text when clicked again.
+
+
+----------Download----------
+23. Name: Download_Picture
+    Type: Functional
+    Summary: The user will be able to download a picture from a given gallery.
+
+24. Name: Download_Mark
+    Type: Functional
+    Summary: The user will be able to mark multiple images to be downloaded at once
+
+25. Name: Download_Multiple
+    Type: Functional
+    Summary: The application must be able to download multiple images for download all at once.
+
+26. Name: Download_All_Album
+    Type: Functional
+    Summary: The user will be able to download all pictures from an album.
+
+
+----------Sort----------   
+27. Name: Sortby_Following
+    Type: Functional
+    Summary: The user will be able to view a gallery of images by accounts that they are following
+    
+28. Name: Sortby_Liked
+    Type: Functional
+    Summary: The user will be able to view a gallery of images that they have liked
+    
+29. Name: Sortby_Hashtag
+    Type: Functional
+    Summary: The user will be able to view a gallery of images that are marked with a certain hashtag
+    
+30. Name: Sortby_User
+    Type: Functional
+    Summary: The user will be able to view a gallery of images that have been posted by any particular account
+
+
+----------API----------
+31. Name: Twitter_API
+    Type: Risk
+    Summary: The application must be able to connect to the Twitter API.
+    
+32. Name: API_Media
+    Type: Constraint
+    Summary: The application must be able to retrieve media from the Twitter API
+    
+33. Name: API_Following
+    Type: Constraint
+    Summary: The application must be able to retrieve account IDs that a user is following from the Twitter API
+    
+34. Name: API_List
+    Type: Constraint
+    Summary: The application must be able to retrieve user created lists from the Twitter API
+    
+35. Name: API_Like
+    Type: Constraint
+    Summary: The application must be able to retrieve statuses that an acount has liked from the Twitter API
+
+36. Name: API_Status
+    Type: Constraint
+    Summary: The application must be able to retrieve statuses from the Twitter API
+    
+37. Name: API_Search
+    Type: Constraint
+    Summary: The application must be able to recieve the results from a Twitter search
+    
+
+----------Graphical Design----------
+38. Name: Login_Page
+    Type: Functional
+    Summary: Allows the application to let user enter Twitter login credentials.
+
+39. Name: Gallery_Display
+    Type: Functional
+    Summary: The user will be able to view images in a gallery view.
+
+40. Name: User_Feed_Display
+    Type: Functional
+    Summary: The application show the Twitter accounts the user follows.
+
+41. Name: Search_Button
+    Type: Functional
+    Summary: Allows the application to search for a specified user.
+
+42. Name: Search_Box
+    Type: Functional
+    Summary: Allows the application to enter in a Twitter account's username to search for a specified user.
+
+43. Name: Default#_Of_Pics_Display
+    Type: Functional
+    Summary: Application will have a default number of pics displayed.
+
+44. Name: Num_Of_Pics_Display_Drop-DownMenu
+    Type: Functional
+    Summary: Application will let the user be able to modify the number of pics displayed.
+
+45. Name: Nextpage_Button
+    Type: Functional
+    Summary: Allows the application to go to the next page of images.
+
+46. Name: Picture_Drop-DownMenu 
+    Type: Functional
+    Summary: This menu offers the picture to be added to an album.
+
+47. Name: Window_Display 
+    Type: Constraint
+    Summary: The application must adjust to the size of the window screen.
+
+48. Name: Album_Tab
+    Type: Functional
+    Summary: This tab is where the albums reside.
+
+----------Albums----------
+49. Name: Album_Create
+    Type: Functional
+    Summary: The user will be able to create an album for saved pictures.
+
+50. Name: Album_Save
+    Type: Functional
+    Summary: The user will be able to create be able to save specified pictures in the album.
+    
+51. Name: Album_SaveAll
+    Type: Functional
+    Summary: The user will be able to save all images from an album at once
