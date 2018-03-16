@@ -1,21 +1,17 @@
 ﻿Album.json - .json file containing the information from selected tweet objects passed from the twitter API, that will be used to show the tweet when the album is accessed within the application.
 ExampleAlbum.json
-{
-	“TweetExample”: {
-		“hashtags”: [],
-		“userId”: “12345”,
-		“statusText”: “example status”,
-		“displayUrl”:[],
-		“thumbnailUrl”:[]
+Album Name: "example name"
+[
+	{
+		“Tweet”: {
+			“hashtags”: [],
+			“userId”: “12345”,
+			“statusText”: “example status”,
+			“displayUrl”:[],
+			“thumbnailUrl”:[]
+		}
 	}
-	“TweetExample2”: {
-		“hashtags”: [],
-		“userId”: “12345”,
-		“statusText”: “example status”,
-		“displayUrl”:[],
-		“thumbnailUrl”:[]
-	}
-}
+]
 
 Filter.json - This file  will be passed in information from the Twitter Object. The information from the Twitter will consist of 3 sets of strings. The three string sets are the user, the status text, and the hashtag. The file will then compare the the tweet object to the desired set to filter. If found correct, the filter will then recieve the set and display the information.
 
