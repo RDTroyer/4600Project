@@ -24,5 +24,21 @@ namespace _4600Project
         {
             InitializeComponent();
         }
+
+        private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+
+        private void SortOptionComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if()
+        }
+
+        private void SearchButton_Click(object sender, RoutedEventArgs e)
+        {
+            Window searchWindow = new SearchWindow();
+        }
     }
 }
