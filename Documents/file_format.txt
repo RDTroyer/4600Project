@@ -17,16 +17,16 @@ Filter.json - This file  will be passed in information from the Twitter Object. 
 
 The following is an example of what the data will look like.
 {
- "text":[]
- "user":[]
- "hashtags":[]
+ "text":" "
+ "user":" "
+ "hashtags":" "
 }
 
 Twitter_Credentials.json - This file will be used to access a Twitter through a specific accounts credentials.
 {
  "ScreenName": "ExScreenName",
- "ConsumerKey": [],
- "ConsumerSecret": [],
- "UserAccessToken": [],
- "UserAccessSecret": []
+ "ConsumerKey": " ",
+ "ConsumerSecret": " ",
+ "UserAccessToken": " ",
+ "UserAccessSecret": " "
 }
