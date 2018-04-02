@@ -33,12 +33,14 @@ namespace _4600Project
 
         private void SortOptionComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if()
+            
         }
 
         private void SearchButton_Click(object sender, RoutedEventArgs e)
         {
             Window searchWindow = new SearchWindow();
+            searchWindow.Show();
+
         }
     }
 }
