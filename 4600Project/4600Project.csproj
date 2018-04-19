@@ -59,13 +59,32 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Feed.cs" />
+    <Compile Include="Entity\MediaEntity.cs" />
+    <Compile Include="Entity\ResultIds.cs" />
+    <Compile Include="Entity\TweetEntities.cs" />
+    <Compile Include="Entity\TweetEntity.cs" />
+    <Compile Include="Entity\UrlEntity.cs" />
+    <Compile Include="Entity\UserEntity.cs" />
+    <Compile Include="Helper\JsonDateTimeConverter.cs" />
+    <Compile Include="Helper\JsonHelper.cs" />
+    <Compile Include="Helper\StringHelper.cs" />
     <Compile Include="SearchWindow.xaml.cs">
       <DependentUpon>SearchWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Tweet.cs" />
-    <Compile Include="TwitterCred.cs" />
-    <Compile Include="UserInfo.cs" />
+    <Compile Include="Security\BlockProcessor.cs" />
+    <Compile Include="Security\CryptoClasses.cs" />
+    <Compile Include="Security\HashAlgorithm.cs" />
+    <Compile Include="Security\HMAC.cs" />
+    <Compile Include="Security\HMACSHA1.cs" />
+    <Compile Include="Security\HMACSHA1Generator.cs" />
+    <Compile Include="Security\ICryptoTransform.cs" />
+    <Compile Include="Security\KeyedHashAlgorithm.cs" />
+    <Compile Include="Security\SHA1.cs" />
+    <Compile Include="TwitterConstants.cs" />
+    <Compile Include="TwitterCredentials.cs" />
+    <Compile Include="TwitterHttpClient.cs" />
+    <Compile Include="TwitterHttpClientHandler.cs" />
+    <Compile Include="TwitterQuery.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -101,18 +120,22 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Json\Twitter_Cred.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <None Include="Twitter_Creds.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Library\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

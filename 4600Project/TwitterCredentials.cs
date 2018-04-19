@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace _4600Project
 {
-    class TwitterCred
+    public class TwitterCredentials
     {
         public string ScreenName { get; set; }
         public string ConsumerKey { get; set; }
