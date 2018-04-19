@@ -13,6 +13,15 @@ namespace _4600Project
     {
         private string _authorizationHeader;
 
+        /// <summary>
+        /// Constructor for TwitterHttpClientHandler. It is a child of the System.Net Class HttpClientHandler. 
+        /// Makes sets the variable _authorizarionHeader equal to the passed authorizationHeader, as well as 
+        /// turns off the use of cookies, and default credentials.
+        ///  
+        /// Preconditions: None
+        /// Postconditions: 
+        /// </summary>
+        /// <param name="authorizationHeader"></param>
         public TwitterHttpClientHandler(string authorizationHeader)
         {
             UseCookies = false;
