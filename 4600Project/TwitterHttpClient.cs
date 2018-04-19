@@ -15,11 +15,23 @@ namespace _4600Project
     {
         private TwitterCredentials _twitterCreds;
 
+        /// <summary>
+        /// Constructor for TwitterHttpClient, sets _twitterCreds to the passed TwitterCredentials
+        /// value.
+        /// 
+        /// Preconditions: twitterCreds cannot be null.
+        /// Postconditions: _twitterCreds is now equal to the passed TwitterCredential value.
+        /// </summary>
+        /// <param name="twitterCreds">Passed TwitterCredentials value.</param>
         public TwitterHttpClient(TwitterCredentials twitterCreds)
         {
             _twitterCreds = twitterCreds;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public UserEntity GetAuthenticatedUser()
         {
             TwitterQuery twitterQuery = TwitterQuery.Create(TwitterConstants.AuthUserUrl);
