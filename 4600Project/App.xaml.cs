@@ -17,9 +17,7 @@ namespace _4600Project
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
-            MessageBox.Show("Start up");
             List<TwitterCredentials> twitterCredsList = LoadTwitterCredentialsList();
-            MessageBox.Show("Twitter Cred List Created");
             if (twitterCredsList.Count == 0)
             {
                 MessageBox.Show("Cannot find Twitter credential files.", "Error");
@@ -32,13 +30,10 @@ namespace _4600Project
         private List<TwitterCredentials> LoadTwitterCredentialsList()
         {
             var result = new List<TwitterCredentials>();
-            int bigger = 1;
             FileInfo[] fileInfos = new DirectoryInfo(System.AppDomain.CurrentDomain.BaseDirectory)
                                             .GetFiles("*_Creds.json");
-            MessageBox.Show("New FileInfos from creds json");
             if (fileInfos.Count() > 0)
             {
-                bigger = 2;
                 foreach (var fileInfo in fileInfos)
                 {
                     TwitterCredentials twitterCreds = null;
@@ -59,7 +54,6 @@ namespace _4600Project
                     }
                 }
             }
-            MessageBox.Show(Convert.ToString(bigger));
             return result;
         }
     }
