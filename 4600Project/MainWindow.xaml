@@ -23,6 +23,7 @@
                     </ComboBox>
                     <Button HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="120" Margin="598,10,0,0" Name="SearchButton" Content="Search" Click="SearchButton_Click"/>
                     <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Sort By:" VerticalAlignment="Top" Margin="599,32,0,0"/>
+                    <ListBox HorizontalAlignment="Left" Height="448" Margin="11,0,0,0" VerticalAlignment="Top" Width="563"/>
 
                 </Grid>
             </TabItem>
