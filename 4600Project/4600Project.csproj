@@ -59,6 +59,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BaseModel.cs" />
     <Compile Include="Entity\MediaEntity.cs" />
     <Compile Include="Entity\ResultIds.cs" />
     <Compile Include="Entity\TweetEntities.cs" />
@@ -80,11 +81,14 @@
     <Compile Include="Security\ICryptoTransform.cs" />
     <Compile Include="Security\KeyedHashAlgorithm.cs" />
     <Compile Include="Security\SHA1.cs" />
+    <Compile Include="TweetModel.cs" />
+    <Compile Include="TweetModelListWrapper.cs" />
     <Compile Include="TwitterConstants.cs" />
     <Compile Include="TwitterCredentials.cs" />
     <Compile Include="TwitterHttpClient.cs" />
     <Compile Include="TwitterHttpClientHandler.cs" />
     <Compile Include="TwitterQuery.cs" />
+    <Compile Include="UserModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
