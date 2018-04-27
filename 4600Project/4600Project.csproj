@@ -66,6 +66,9 @@
     <Compile Include="Entity\TweetEntity.cs" />
     <Compile Include="Entity\UrlEntity.cs" />
     <Compile Include="Entity\UserEntity.cs" />
+    <Compile Include="FeedControl.xaml.cs">
+      <DependentUpon>FeedControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TweetCompiler.cs" />
     <Compile Include="Helper\JsonDateTimeConverter.cs" />
     <Compile Include="Helper\JsonHelper.cs" />
@@ -90,6 +93,10 @@
     <Compile Include="TwitterHttpClientHandler.cs" />
     <Compile Include="TwitterQuery.cs" />
     <Compile Include="UserModel.cs" />
+    <Page Include="FeedControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
