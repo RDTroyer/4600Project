@@ -26,7 +26,8 @@ namespace _4600Project
                 return;
             }
             MessageBox.Show("Connected to Twitter Successfully");
-            
+            TweetCompiler compiler = new TweetCompiler(twitterCredsList);
+            compiler.CreateTweetModelList(compiler._friendsList);
 
         }
         private List<TwitterCredentials> LoadTwitterCredentialsList()

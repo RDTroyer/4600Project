@@ -13,17 +13,18 @@ namespace _4600Project
         const int _MaxTweetsToRetrieve = 50;
         UserEntity _loginUser;
         private List<TwitterCredentials> _twitterCredsList;
-        public TwitterHttpClient _twitterHttpClient;
         public List<UserModel> _friendsList;
+        public TwitterHttpClient _twitterHttpClient;
         public TweetCompiler(List<TwitterCredentials> TwitCredList)
         {
             _twitterCredsList = TwitCredList;
             _twitterHttpClient = new TwitterHttpClient(_twitterCredsList.First());
             _loginUser = _twitterHttpClient.GetAuthenticatedUser();
+            _friendsList = new List<UserModel>();
+            GetFriendsList();
         }
         private void GetFriendsList()
         {
-            
             var friends = _twitterHttpClient.GetFriends(_loginUser.Id);
             foreach(var friend in friends)
             {
@@ -31,22 +32,22 @@ namespace _4600Project
                 _friendsList.Add(userModel);
             }
         }
-        public void CreateTweetModelList(List<UserModel> userModels)
+        public void CreateTweetModelList(List<UserModel> friendsList)
         {
-            foreach (UserModel userModel in userModels)
+            foreach (UserModel friend in friendsList)
             {
                 try
                 {
                     List<TweetEntity> tweetList =
-                    _twitterHttpClient.GetUserTweetList(userModel.UserId, _MaxTweetsToRetrieve, true);
+                    _twitterHttpClient.GetUserTweetList(friend.UserId, _MaxTweetsToRetrieve, true);
                     //userModel.TweetRetweetModelList = tweetList.Select(GenerateTweetModelFrom).ToList();
                     //userModel.TweetModelListWrapper.TweetModelList = userModel.TweetRetweetModelList.ToList();
-                    userModel.TweetModelListWrapper.TweetModelList = tweetList.Select(GenerateTweetModelFrom).ToList();
-                    foreach(TweetModel tweet in userModel.TweetModelListWrapper.TweetModelList)
+                    friend.TweetModelListWrapper.TweetModelList = tweetList.Select(GenerateTweetModelFrom).ToList();
+                    foreach(TweetModel tweet in friend.TweetModelListWrapper.TweetModelList)
                     {
                         if (!tweet.TweetImageUrlNotEmpty)
                         {
-                            userModel.TweetModelListWrapper.TweetModelList.Remove(tweet);
+                            friend.TweetModelListWrapper.TweetModelList.Remove(tweet);
                         }
 
                     }
