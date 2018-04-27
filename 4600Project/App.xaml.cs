@@ -16,6 +16,7 @@ namespace _4600Project
     {
         protected override void OnStartup(StartupEventArgs e)
         {
+
             base.OnStartup(e);
             List<TwitterCredentials> twitterCredsList = LoadTwitterCredentialsList();
             if (twitterCredsList.Count == 0)
@@ -25,7 +26,7 @@ namespace _4600Project
                 return;
             }
             MessageBox.Show("Connected to Twitter Successfully");
-            //Make a call to GetImagesPlease To create TweetLists. 
+            
 
         }
         private List<TwitterCredentials> LoadTwitterCredentialsList()

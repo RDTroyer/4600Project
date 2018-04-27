@@ -7,16 +7,29 @@ using System.Threading.Tasks;
 namespace _4600Project
 {
 
-    public class GetImagesPlease
+    public class TweetCompiler
     {
+        //Max is actually 200, but for sake of performance, went with 50.
         const int _MaxTweetsToRetrieve = 50;
+        UserEntity _loginUser;
         private List<TwitterCredentials> _twitterCredsList;
         public TwitterHttpClient _twitterHttpClient;
-        public GetImagesPlease(List<TwitterCredentials> TwitCredList)
+        public List<UserModel> _friendsList;
+        public TweetCompiler(List<TwitterCredentials> TwitCredList)
         {
             _twitterCredsList = TwitCredList;
             _twitterHttpClient = new TwitterHttpClient(_twitterCredsList.First());
-
+            _loginUser = _twitterHttpClient.GetAuthenticatedUser();
+        }
+        private void GetFriendsList()
+        {
+            
+            var friends = _twitterHttpClient.GetFriends(_loginUser.Id);
+            foreach(var friend in friends)
+            {
+                var userModel = new UserModel(friend);
+                _friendsList.Add(userModel);
+            }
         }
         public void CreateTweetModelList(List<UserModel> userModels)
         {
