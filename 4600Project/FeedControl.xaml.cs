@@ -17,7 +17,7 @@ namespace _4600Project
     /// <summary>
     /// Interaction logic for FeedControl.xaml
     /// </summary>
-    public partial class FeedControl : Window
+    public partial class FeedControl : UserControl
     {
         public FeedControl()
         {
