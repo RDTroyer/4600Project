@@ -5,34 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_4600Project"
         mc:Ignorable="d"
-        Title="Twitter Gallery" Height="500" Width="750">
-    <Grid>
- 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="67*"/>
-            <ColumnDefinition Width="305*"/>
-        </Grid.ColumnDefinitions>
-        <Rectangle Fill="BlueViolet" HorizontalAlignment="Left" Height="35" Stroke="Black" VerticalAlignment="Top" Width="744" Margin="0,-1,0,0" Grid.ColumnSpan="2"/>
-        <TabControl HorizontalAlignment="Left" Height="471" VerticalAlignment="Top" Width="745" Margin="0,1,-1,-1.6" SelectionChanged="TabControl_SelectionChanged" Grid.ColumnSpan="2">
-            <TabItem Header="Home Feed">
-                <Grid Background="#FFE5E5E5" Margin="-14,-3,-1.6,-2.6">
-                    <ScrollBar VerticalAlignment="Top" Margin="550,0,171.5,0" Width="13" Height="442"/>
-                    <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="598,49,0,0" Name="SortOptionComboBox" Text="Sort" SelectedIndex="0" SelectionChanged="SortOptionComboBox_SelectionChanged">
-                        <ComboBoxItem Name="DefaultItem">Twitter Default</ComboBoxItem>
-                        <ComboBoxItem Name="NewToOldItem">New to Old</ComboBoxItem>
-                        <ComboBoxItem Name="OldToNewItem">Old to New</ComboBoxItem>
-                    </ComboBox>
-                    <Button HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="120" Margin="598,10,0,0" Name="SearchButton" Content="Search" Click="SearchButton_Click"/>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Sort By:" VerticalAlignment="Top" Margin="599,32,0,0"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="239,106,0,0" TextWrapping="Wrap" Text="{Binding Path=Length}" VerticalAlignment="Top" Height="98" Width="124"/>
+        Title="Twitter Gallery" MinHeight="400" MinWidth="500">
 
-                </Grid>
-            </TabItem>
-            <TabItem Header="Albums">
-                <Grid Background="#FFE5E5E5" Margin="-2,-1,-2.6,1.4">
-                    <ScrollBar HorizontalAlignment="Left" VerticalAlignment="Top" Margin="714,0,0,0" Width="19" Height="442"/>
-                </Grid>
-            </TabItem>
-        </TabControl>
-    </Grid>
+    <local:ListViewControl x:Name="ListControl" Grid.Column="0"/>
 </Window>

@@ -16,19 +16,13 @@ using System.Windows.Shapes;
 namespace _4600Project
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for ListViewControl.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class ListViewControl : UserControl
     {
-        public MainWindow()
+        public ListViewControl()
         {
             InitializeComponent();
-            Loaded += MainWindow_Loaded;
-        }
-
-        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
-        {
-            DataContext = App.TweetCompiler;
         }
     }
 }

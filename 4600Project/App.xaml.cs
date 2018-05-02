@@ -26,7 +26,6 @@ namespace _4600Project
                 Shutdown();
                 return;
             }
-            MessageBox.Show("Connected to Twitter Successfully");
             TweetCompiler = new TweetCompiler(twitterCredsList);
             TweetCompiler.CreateTweetModelList(TweetCompiler._friendsList);
 

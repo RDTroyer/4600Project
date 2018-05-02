@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace _4600Project
 {
@@ -16,7 +17,11 @@ namespace _4600Project
         public DataTable dataTable;
         private List<TwitterCredentials> _twitterCredsList;
         public List<UserModel> _friendsList;
-        public TweetModelListWrapper wrapper;
+        public TweetModelListWrapper Wrapper
+        {
+            get;
+            private set;
+        }
         public TwitterHttpClient _twitterHttpClient;
         public TweetCompiler(List<TwitterCredentials> TwitCredList)
         {
@@ -35,27 +40,32 @@ namespace _4600Project
                 _friendsList.Add(userModel);
             }
         }
+        public Task CreateTweetModelListAsync(List<UserModel> userModels)
+        {
+            return Task.Run(() => CreateTweetModelList(userModels));
+        }
         public void CreateTweetModelList(List<UserModel> friendsList)
         {
-            wrapper = new TweetModelListWrapper();
+            Wrapper = new TweetModelListWrapper();
             foreach (UserModel friend in friendsList)
             {
                 try
                 {
+                    List<TweetModel> tweetModelList = new List<TweetModel>();
                     List<TweetEntity> tweetList =
                     _twitterHttpClient.GetUserTweetList(friend.UserId, _MaxTweetsToRetrieve, true);
-                    friend.TweetRetweetModelList = tweetList.Select(GenerateTweetModelFrom).ToList();
-                    friend.TweetModelListWrapper.TweetModelList = friend.TweetRetweetModelList.ToList();
-                    foreach(TweetModel Tweet in friend.TweetModelListWrapper.TweetModelList.ToList())
+                    //friend.TweetRetweetModelList = tweetList.Select(GenerateTweetModelFrom).ToList();
+                    tweetModelList = tweetList.Select(GenerateTweetModelFrom).ToList();
+                    Console.WriteLine("HERE " + friend.UserName + " " + tweetModelList.Count);
+                    Wrapper.TweetModelList.AddRange(tweetModelList);
+                    /*if(Wrapper.TweetModelList != null)
                     {
-                        if (!Tweet.TweetImageUrlNotEmpty)
-                        {
-                           friend.TweetModelListWrapper.TweetModelList.Remove(Tweet);
-                        }
-                    }
+                        MessageBox.Show($"{Wrapper.TweetModelList.Count}");
+                    }*/
 
+                    break;
+               }
 
-                }
                 catch (Exception exception)
                 {
                     Console.WriteLine($"CreatTweetModelList => {exception.Message}");
@@ -113,16 +123,5 @@ namespace _4600Project
                 TweetDateTime = tweetDateTime,
             };
         }
-        public void FillTable()
-        {
-            DataTable dt = new DataTable();
-            dt.Columns.Add("Images", typeof(string));
-            foreach (var Tweet in wrapper.TweetModelList)
-            {
-                DataRow dr = dt.NewRow();
-                dr["Image"] = Tweet.TweetImageUrl;
-            }
-            dataTable = dt;
-        } 
     }
 }
