@@ -46,7 +46,7 @@ namespace _4600Project
                     _twitterHttpClient.GetUserTweetList(friend.UserId, _MaxTweetsToRetrieve, true);
                     friend.TweetRetweetModelList = tweetList.Select(GenerateTweetModelFrom).ToList();
                     friend.TweetModelListWrapper.TweetModelList = friend.TweetRetweetModelList.ToList();
-                    foreach(TweetModel Tweet in friend.TweetModelListWrapper.TweetModelList)
+                    foreach(TweetModel Tweet in friend.TweetModelListWrapper.TweetModelList.ToList())
                     {
                         if (!Tweet.TweetImageUrlNotEmpty)
                         {
