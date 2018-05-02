@@ -6,6 +6,16 @@
         xmlns:local="clr-namespace:_4600Project"
         mc:Ignorable="d"
         Title="Twitter Gallery" MinHeight="400" MinWidth="500">
-
-    <local:ListViewControl x:Name="ListControl" Grid.Column="0"/>
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="260" MinWidth="260" MaxWidth="360"></ColumnDefinition>
+            <ColumnDefinition Width="256*" MinWidth="200"></ColumnDefinition>
+            <ColumnDefinition Width="51*"/>
+        </Grid.ColumnDefinitions>
+        <local:ListViewControl x:Name="ListControl" Grid.Column="1"/>
+    </Grid>
 </Window>

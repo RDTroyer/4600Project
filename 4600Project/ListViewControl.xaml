@@ -15,15 +15,15 @@
             <DataTemplate>
                 <Grid Margin="5">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="38"/>
+                        <ColumnDefinition Width="800"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <StackPanel Grid.Column="1" Orientation="Vertical">
-                        <TextBlock Text="{Binding TweetDateTime}" Foreground="Gray" Margin="0,2,0,0" />
                         <Image
                             Visibility="{Binding Path=TweetImageUrlNotEmpty, FallbackValue=Collapsed}"
                             Source="{Binding TweetImageUrl, TargetNullValue={x:Null}}"
-                            MaxHeight="280" Margin="0,6"/>
+                            MaxHeight="280" Margin="0,0,0,0" Grid.Row="0" Grid.ColumnSpan="2" >
+                        </Image>
                     </StackPanel>
                 </Grid>
             </DataTemplate>
