@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,13 +8,15 @@ using System.Threading.Tasks;
 namespace _4600Project
 {
 
-    public class TweetCompiler
+    public class TweetCompiler : BaseModel
     {
         //Max is actually 200, but for sake of performance, went with 50.
         const int _MaxTweetsToRetrieve = 50;
         UserEntity _loginUser;
+        public DataTable dataTable;
         private List<TwitterCredentials> _twitterCredsList;
         public List<UserModel> _friendsList;
+        public TweetModelListWrapper wrapper;
         public TwitterHttpClient _twitterHttpClient;
         public TweetCompiler(List<TwitterCredentials> TwitCredList)
         {
@@ -34,22 +37,21 @@ namespace _4600Project
         }
         public void CreateTweetModelList(List<UserModel> friendsList)
         {
+            wrapper = new TweetModelListWrapper();
             foreach (UserModel friend in friendsList)
             {
                 try
                 {
                     List<TweetEntity> tweetList =
                     _twitterHttpClient.GetUserTweetList(friend.UserId, _MaxTweetsToRetrieve, true);
-                    //userModel.TweetRetweetModelList = tweetList.Select(GenerateTweetModelFrom).ToList();
-                    //userModel.TweetModelListWrapper.TweetModelList = userModel.TweetRetweetModelList.ToList();
-                    friend.TweetModelListWrapper.TweetModelList = tweetList.Select(GenerateTweetModelFrom).ToList();
-                    foreach(TweetModel tweet in friend.TweetModelListWrapper.TweetModelList)
+                    friend.TweetRetweetModelList = tweetList.Select(GenerateTweetModelFrom).ToList();
+                    friend.TweetModelListWrapper.TweetModelList = friend.TweetRetweetModelList.ToList();
+                    foreach(TweetModel Tweet in friend.TweetModelListWrapper.TweetModelList)
                     {
-                        if (!tweet.TweetImageUrlNotEmpty)
+                        if (!Tweet.TweetImageUrlNotEmpty)
                         {
-                            friend.TweetModelListWrapper.TweetModelList.Remove(tweet);
+                           friend.TweetModelListWrapper.TweetModelList.Remove(Tweet);
                         }
-
                     }
 
 
@@ -111,5 +113,16 @@ namespace _4600Project
                 TweetDateTime = tweetDateTime,
             };
         }
+        public void FillTable()
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Images", typeof(string));
+            foreach (var Tweet in wrapper.TweetModelList)
+            {
+                DataRow dr = dt.NewRow();
+                dr["Image"] = Tweet.TweetImageUrl;
+            }
+            dataTable = dt;
+        } 
     }
 }

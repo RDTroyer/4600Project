@@ -14,6 +14,7 @@ namespace _4600Project
     /// </summary>
     public partial class App : Application
     {
+        public static TweetCompiler TweetCompiler { get; private set; }
         protected override void OnStartup(StartupEventArgs e)
         {
 
@@ -26,8 +27,8 @@ namespace _4600Project
                 return;
             }
             MessageBox.Show("Connected to Twitter Successfully");
-            TweetCompiler compiler = new TweetCompiler(twitterCredsList);
-            compiler.CreateTweetModelList(compiler._friendsList);
+            TweetCompiler = new TweetCompiler(twitterCredsList);
+            TweetCompiler.CreateTweetModelList(TweetCompiler._friendsList);
 
         }
         private List<TwitterCredentials> LoadTwitterCredentialsList()

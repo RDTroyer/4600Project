@@ -23,6 +23,12 @@ namespace _4600Project
         public MainWindow()
         {
             InitializeComponent();
+            Loaded += MainWindow_Loaded;
+        }
+
+        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            DataContext = App.TweetCompiler;
         }
 
         private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
