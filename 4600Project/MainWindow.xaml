@@ -16,6 +16,14 @@
             <ColumnDefinition Width="256*" MinWidth="200"></ColumnDefinition>
             <ColumnDefinition Width="51*"/>
         </Grid.ColumnDefinitions>
-        <local:ListViewControl x:Name="ListControl" Grid.RowSpan="2" Grid.Column="1" DataContext="{Binding Wrapper}"/>
+        <local:ListViewControl x:Name="ListControl" Grid.RowSpan="2" Grid.Column="1" DataContext="{Binding Wrapper}" Grid.ColumnSpan="2" Margin="0,0,-0.4,0.4"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Grid.RowSpan="2" TextWrapping="Wrap" Text="Enter a Search Term" VerticalAlignment="Top" Width="120" Margin="16,10,0,0" TextChanged="TextBox_TextChanged"/>
+        <Button Content="Search!" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="160,12,0,0" Grid.RowSpan="2"/>
+        <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="115,56,0,0" Grid.Row="1" SelectedIndex="2" SelectionChanged="ComboBox_SelectionChanged">
+            <Label Content="By Newest to Oldest"/>
+            <Label Content="By Oldest to Newest"/>
+            <Label Content="By Popularity"/>
+        </ComboBox>
+        <Label Content="Sort:" HorizontalAlignment="Left" Margin="20,56,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="0.461,-0.094"/>
     </Grid>
 </Window>

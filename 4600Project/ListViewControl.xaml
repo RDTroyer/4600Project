@@ -20,11 +20,11 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <StackPanel Grid.Column="1" Orientation="Vertical">
-                        
+
                         <Image
-                            Visibility="{Binding Path=TweetImageUrlNotEmpty, FallbackValue=Collapsed}"
+                            Visibility="{Binding Path=TweetImageUrlNotEmpty, FallbackValue=Visible}"
                             Source="{Binding TweetImageUrl, TargetNullValue={x:Null}}"
-                            MaxHeight="280" Margin="0,0,0,0" Grid.Row="0" Grid.ColumnSpan="2" >
+                            MaxHeight="280" Margin="140,280" Grid.Row="0" Grid.ColumnSpan="2" >
                         </Image>
 
                     </StackPanel>
