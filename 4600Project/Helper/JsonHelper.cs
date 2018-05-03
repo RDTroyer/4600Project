@@ -11,31 +11,7 @@ namespace _4600Project
 {
     public static class JsonHelper
     {
-        /// <summary>
-        /// Used to serialize an object as a json string.
-        /// </summary>
-        /// <param name="objectToSerialize"></param>
-        /// <returns></returns>
-        public static string SerializeObjectAsJsonString(object objectToSerialize)
-        {
-            string jsonString = JsonConvert.SerializeObject(objectToSerialize, Newtonsoft.Json.Formatting.Indented
-                                    , new JsonSerializerSettings
-                                            {
-                                                ReferenceLoopHandling = ReferenceLoopHandling.Ignore
-                                            }
-                                    );
-            return jsonString;
-        }
-
-        public static void SaveAsJsonToFile(object objectToSerialize, string filePath)
-        {
-            string jsonString = SerializeObjectAsJsonString(objectToSerialize);
-            if (!string.IsNullOrWhiteSpace(jsonString))
-            {
-                File.WriteAllText(filePath, jsonString);
-            }
-        }
-
+       
         /// <summary>
         /// This method is used to deserialize json to a class
         /// Used for the TwitterHttpClient

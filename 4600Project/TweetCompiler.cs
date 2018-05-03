@@ -30,7 +30,6 @@ namespace _4600Project
         /// <param name="TwitCredList">Passed in twitter credential list values</param>
         public TweetCompiler(List<TwitterCredentials> TwitCredList)
         {
-
             _twitterCredsList = TwitCredList;
             _twitterHttpClient = new TwitterHttpClient(_twitterCredsList.First());
             _loginUser = _twitterHttpClient.GetAuthenticatedUser();
@@ -52,20 +51,6 @@ namespace _4600Project
                 var userModel = new UserModel(friend);
                 _friendsList.Add(userModel);
             }
-        }
-
-        /// <summary>
-        /// The following method is used to create the tweet model list for the xaml window
-        /// 
-        /// Precondition: none
-        /// Postcondition: none
-        /// </summary>
-        /// <param name="userModels">passed in userModels values</param>
-        /// <returns> the task which creates the tweet model list</returns>
-        public Task CreateTweetModelListAsync(List<UserModel> userModels)
-        {
-
-            return Task.Run(() => CreateTweetModelList(userModels));
         }
 
         /// <summary>
@@ -105,6 +90,7 @@ namespace _4600Project
                 }
             }
         }
+
         /// <summary>
         /// The following method is used to properly generate the TweetModel for the compiler
         /// by formatting the text and the date/time of the tweet.
