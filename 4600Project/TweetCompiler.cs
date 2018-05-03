@@ -17,20 +17,37 @@ namespace _4600Project
         public DataTable dataTable;
         private List<TwitterCredentials> _twitterCredsList;
         public List<UserModel> _friendsList;
+        public TwitterHttpClient _twitterHttpClient;
+
         public TweetModelListWrapper Wrapper
         {
             get;
             private set;
         }
-        public TwitterHttpClient _twitterHttpClient;
+       
+        /// <summary>
+        /// This constructor initializes the compiler fields and call for the friendsList.
+        /// 
+        /// Precondition: none
+        /// Postcondtion: none
+        /// </summary>
+        /// <param name="TwitCredList">Passed in twitter credential list values</param>
         public TweetCompiler(List<TwitterCredentials> TwitCredList)
         {
+
             _twitterCredsList = TwitCredList;
             _twitterHttpClient = new TwitterHttpClient(_twitterCredsList.First());
             _loginUser = _twitterHttpClient.GetAuthenticatedUser();
             _friendsList = new List<UserModel>();
             GetFriendsList();
         }
+
+        /// <summary>
+        /// This method gets the friend information from the twitter client and adds them to a friendsList as a userModel
+        /// 
+        /// Precondition: none
+        /// Postcondition: none
+        /// </summary>
         private void GetFriendsList()
         {
             var friends = _twitterHttpClient.GetFriends(_loginUser.Id);
@@ -40,12 +57,32 @@ namespace _4600Project
                 _friendsList.Add(userModel);
             }
         }
+
+        /// <summary>
+        /// The following method is used to create the tweet model list for the xaml window
+        /// 
+        /// Precondition: none
+        /// Postcondition: none
+        /// </summary>
+        /// <param name="userModels">passed in userModels values</param>
+        /// <returns> the task which creates the tweet model list</returns>
         public Task CreateTweetModelListAsync(List<UserModel> userModels)
         {
+
             return Task.Run(() => CreateTweetModelList(userModels));
         }
+
+        /// <summary>
+        /// The following method is used to create the tweet model list for viewing on on the xaml
+        /// by assigning the friend infromation to each friend and wraps every friend to the wrapper's TweetModelList
+        /// 
+        /// Precondition: none
+        /// Postcondition: none
+        /// </summary>
+        /// <param name="friendsList">passed in friendslist values</param>
         public void CreateTweetModelList(List<UserModel> friendsList)
         {
+
             Wrapper = new TweetModelListWrapper();
             foreach (UserModel friend in friendsList)
             {
@@ -72,8 +109,20 @@ namespace _4600Project
                 }
             }
         }
+        /// <summary>
+        /// The following method is used to properly generate the TweetModel for the compiler
+        /// by formatting the text and the date/time of the tweet.
+        /// 
+        /// Precondition: check if the index for the full tweet text is 0 or greater than 0,
+        /// if the span for the total hours is 0 or less than 24
+        /// 
+        /// Postcondition: Chooses the right formatting needed based on the precondtions
+        /// </summary>
+        /// <param name="tweet">passed in tweet information from TweetEntity</param>
+        /// <returns> a new tweet model</returns>
         private TweetModel GenerateTweetModelFrom(TweetEntity tweet)
         {
+
             // Split text and embed url
             string fullText, embedUrl;
             int index = tweet.FullText.IndexOf("http");

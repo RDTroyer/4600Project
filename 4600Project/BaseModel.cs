@@ -10,10 +10,26 @@ namespace _4600Project
 {
     public class BaseModel : INotifyPropertyChanged
     {
+        /// <summary>
+        /// The following is a default constructor for BaseModel
+        /// </summary>
         public BaseModel()
         {
+
         }
 
+        /// <summary>
+        /// The following is used to validate any changes made to a property
+        /// 
+        /// Precondition: Checks if the property values are equal
+        /// Postcondition: Changes the condition of the property if any change is needed.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="backingStore">reference to backup</param>
+        /// <param name="value">value</param>
+        /// <param name="propertyName">the name of the property</param>
+        /// <param name="onChanged">where it has been changed</param>
+        /// <returns></returns>
         protected bool SetProperty<T>(
             ref T backingStore, T value,
             [CallerMemberName]string propertyName = "",

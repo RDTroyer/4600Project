@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace _4600Project
 {
+    /// <summary>
+    /// The following json properties are used to access the result ids of Twitter
+    /// </summary>
     public class ResultIds
     {
         private long[] _ids;

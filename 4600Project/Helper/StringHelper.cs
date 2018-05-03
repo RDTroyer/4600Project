@@ -6,9 +6,16 @@ namespace _4600Project
     {
         private const string _AllowedChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_.~";
 
+
         /// <summary>
-        /// Clean a string to be used in a url
-        /// </summary>        
+        /// Cleans a string to be used in a url and appends the correct characters for encoding
+        /// Used in the TwitterHttpClient
+        /// 
+        /// Precondition: compares what is contained in the allowed chars
+        /// Postcondition: appends what is needed for the result based on the precondition
+        /// </summary>  
+        /// <param name="str">passind in string to be url encoded</param>
+        /// <returns>the result in a string format</returns>
         public static string UrlEncode(string str)
         {
             var result = new StringBuilder();

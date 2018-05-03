@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace _4600Project
 { 
+    /// <summary>
+    /// The following fields are used in the TwitterHttpClient as standard constants for the query
+    /// </summary>
     public class TwitterConstants
     {
         public const string AuthUserUrl = "https://api.twitter.com/1.1/account/verify_credentials.json";
@@ -14,6 +17,8 @@ namespace _4600Project
         public const string UsersDataUrl = "https://api.twitter.com/1.1/users/lookup.json";
         public const string TonUrl = "https://ton.twitter.com";
         public const int MaxFriendsToRetrive = 250;
-        public const int MaxFriendsToLookupPerCall = 100; // Twitter API's limit
+
+        // 100 for MaxFriendsToLookupPerCall is Twitter API's limit
+        public const int MaxFriendsToLookupPerCall = 100; 
     }
 }

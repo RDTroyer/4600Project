@@ -7,6 +7,10 @@ using System.Threading.Tasks;
 
 namespace _4600Project
 {
+    /// <summary>
+    /// The following json properties are used to access the tweet entities of Twitter
+    /// which consist of urls and media.
+    /// </summary>
     public class TweetEntities
     {
         [JsonProperty("urls")]

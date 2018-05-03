@@ -29,7 +29,10 @@ namespace _4600Project
         }
 
         /// <summary>
+        /// This method retrieves the authenicated user by creating a query for Twitter.
         /// 
+        /// Precondition: none
+        /// Postcondition: none
         /// </summary>
         /// <returns></returns>
         public UserEntity GetAuthenticatedUser()
@@ -42,6 +45,15 @@ namespace _4600Project
             return user;
         }
 
+
+        /// <summary>
+        /// This method retrieves the user's friends' list based on the id of the user.
+        /// 
+        /// Precondition: checks if the id lengths are greater than 0
+        /// Postcondition: friendList is assigned to a call which has friendIds as an argument.
+        /// </summary>
+        /// <param name="userId">passed userId value</param>
+        /// <returns>either the friendList or a brand new UserEntity List</returns>
         public List<UserEntity> GetFriends(long userId)
         {
             List<UserEntity> friendList = null;
@@ -53,6 +65,17 @@ namespace _4600Project
             return friendList ?? new List<UserEntity>();
         }
 
+
+        /// <summary>
+        /// The following method retrieves the user's tweet list by adding parameters to the query for Twitter access.
+        /// 
+        /// Precondition:none
+        /// Postcondition: none
+        /// </summary>
+        /// <param name="userId">passed userId value</param>
+        /// <param name="count">passed in count value</param>
+        /// <param name="includeRetweet">boolean on choosing to include a retweet</param>
+        /// <returns>tweetList or a brand new TweetEntity List</returns>
         public List<TweetEntity> GetUserTweetList(long userId, int count, bool includeRetweet = false)
         {
             var twitterQuery = TwitterQuery.Create(TwitterConstants.UserTweetsUrl);
@@ -70,6 +93,14 @@ namespace _4600Project
             return tweetList ?? new List<TweetEntity>();
         }
 
+        /// <summary>
+        /// This method is used to retrieve the friend ids from the user by adding the required friend parameters to the query
+        /// 
+        /// Precondition: none
+        /// Postcondition: none
+        /// </summary>
+        /// <param name="userId">passed userId value</param>
+        /// <returns>returns the resultIds or a new long[0]</returns>
         private long[] GetFriendIds(long userId)
         {
             var twitterQuery = TwitterQuery.Create(TwitterConstants.FriendIdsUrl);
@@ -80,6 +111,14 @@ namespace _4600Project
             return resultIds.Ids ?? new long[0];
         }
 
+        /// <summary>
+        /// This method gets the required information for the user friends from the friend ids.
+        /// 
+        /// Precondition: checks if friends are null
+        /// Postcondition: add the range of friends to the friendList
+        /// </summary>
+        /// <param name="friendIds">passed in friendIds</param>
+        /// <returns>friendList</returns>
         private List<UserEntity> GetFriendsFromIds(long[] friendIds)
         {
             // Twitter allows only MaxFriendsToLookupPerCall per query, so make multiple calls
@@ -101,6 +140,14 @@ namespace _4600Project
             return friendList;
         }
 
+        /// <summary>
+        /// Creates the Ids parameter through string formatting
+        /// 
+        /// Precondition: none
+        /// Postcondition: none
+        /// </summary>
+        /// <param name="ids">passed in ids</param>
+        /// <returns>results in a Tostring format</returns>
         private string GenerateIdsParameter(long[] ids)
         {
             var result = new StringBuilder();
@@ -112,8 +159,18 @@ namespace _4600Project
             return result.ToString();
         }
 
+        /// <summary>
+        /// This method executes the query by calling an Http response,
+        /// seeing if it went in successfully, and returns the result.
+        /// 
+        /// Precondition: Checks if the httpResponseMessage is successful and if the stream is not null.
+        /// Postcondition: Reads the response and makes the query result
+        /// </summary>
+        /// <param name="twitterQuery">passed in query for Twitter</param>
+        /// <returns>results of the query, queryResult</returns>
         private string ExecuteQuery(TwitterQuery twitterQuery)
         {
+
             string queryResult = null;
             HttpResponseMessage httpResponseMessage = null;
 
@@ -138,6 +195,15 @@ namespace _4600Project
             return queryResult;
         }
 
+        /// <summary>
+        /// This method retrieves the Http response through async as it accesses the web.
+        /// The method also calls GenerateAuthroizationHeader for the Http request.
+        /// 
+        /// Precondition: none
+        /// Postcondition: none
+        /// </summary>
+        /// <param name="twitterQuery">passed in query for Twitter</param>
+        /// <returns>the http response</returns>
         public async Task<HttpResponseMessage> GetHttpResponseAsync(TwitterQuery twitterQuery)
         {            
             string authorizationHeader = GenerateAuthorizationHeader(twitterQuery);
@@ -149,6 +215,16 @@ namespace _4600Project
             }
         }
 
+        /// <summary>
+        /// This method deals with the authorization portion of the query by generating signature parameters
+        /// and the requirements to have an OAuthRequest.
+        /// 
+        /// Precondition: Checks if the length of the header is greater than 6
+        /// and if the length of the formatted url parameter is greater than 0
+        /// Postcondition: append the required format for the header and appends a special character for the formatted url parameter
+        /// </summary>
+        /// <param name="twitterQuery">passed in twitterQuery value</param>
+        /// <returns>returns all athotization information in the header </returns>
         private string GenerateAuthorizationHeader(TwitterQuery twitterQuery)
         {
             var signatureParameters = new List<KeyValuePair<string, string>>();

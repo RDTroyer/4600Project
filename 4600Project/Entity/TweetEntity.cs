@@ -3,6 +3,9 @@ using Newtonsoft.Json;
 
 namespace _4600Project
 {
+    /// <summary>
+    /// The following json properties are used to access the standard tweet entity of Twitter
+    /// </summary>
     public class TweetEntity
     {                
         [JsonProperty("id")]

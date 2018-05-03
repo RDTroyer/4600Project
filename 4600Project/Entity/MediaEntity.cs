@@ -7,6 +7,9 @@ using Newtonsoft.Json;
 
 namespace _4600Project
 {
+    /// <summary>
+    /// The following json properties are used to access the media entities of Twitter
+    /// </summary>
     public class MediaEntity
     {
         [JsonProperty("media_url")]

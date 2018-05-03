@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace _4600Project
 {
+    /// <summary>
+    /// The following properties are used to access the user's credentials
+    /// </summary>
     public class TwitterCredentials
     {
         public string ScreenName { get; set; }
