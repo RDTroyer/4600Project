@@ -15,6 +15,16 @@ namespace _4600Project
     public partial class App : Application
     {
         public static TweetCompiler TweetCompiler { get; private set; }
+
+        /// <summary>
+        /// This method starts up the application by loading the credentials, compiling twitter,
+        /// and creating the TweetModelList.
+        /// 
+        /// Precondition: Check if the credential list's count is 0.
+        /// Postcondition: If 0, then a messagebox alerts that file cannot be found
+        /// and proceeds to shut down the application.
+        /// </summary>
+        /// <param name="e">startupeventarg e</param>
         protected override void OnStartup(StartupEventArgs e)
         {
 
@@ -30,8 +40,17 @@ namespace _4600Project
             TweetCompiler.CreateTweetModelList(TweetCompiler._friendsList);
 
         }
+        /// <summary>
+        /// This method loads in the credential list to be used for OnStartup.
+        /// 
+        /// Precondition: Checks for the file count, if the file exists,
+        /// and to see if any credential in the list is null.
+        /// Postcondition: Proceeds to add the credentials to the credential list
+        /// </summary>
+        /// <returns>the credential result</returns>
         private List<TwitterCredentials> LoadTwitterCredentialsList()
         {
+
             var result = new List<TwitterCredentials>();
             FileInfo[] fileInfos = new DirectoryInfo(System.AppDomain.CurrentDomain.BaseDirectory)
                                             .GetFiles("*_Creds.json");
