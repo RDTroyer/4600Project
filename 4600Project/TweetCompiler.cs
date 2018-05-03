@@ -19,11 +19,7 @@ namespace _4600Project
         public List<UserModel> _friendsList;
         public TwitterHttpClient _twitterHttpClient;
 
-        public TweetModelListWrapper Wrapper
-        {
-            get;
-            private set;
-        }
+        public TweetModelListWrapper Wrapper { get; private set; }
        
         /// <summary>
         /// This constructor initializes the compiler fields and call for the friendsList.

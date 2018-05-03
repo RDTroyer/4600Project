@@ -16,6 +16,6 @@
             <ColumnDefinition Width="256*" MinWidth="200"></ColumnDefinition>
             <ColumnDefinition Width="51*"/>
         </Grid.ColumnDefinitions>
-        <local:ListViewControl x:Name="ListControl" Grid.Column="1"/>
+        <local:ListViewControl x:Name="ListControl" Grid.RowSpan="2" Grid.Column="1" DataContext="{Binding Wrapper}"/>
     </Grid>
 </Window>
