@@ -65,14 +65,15 @@ namespace _4600Project
         {
 
             Wrapper = new TweetModelListWrapper();
+            List<TweetModel> tweetModelList = new List<TweetModel>();
+
             foreach (UserModel friend in friendsList)
             {
                 try
                 {
-                    List<TweetModel> tweetModelList = new List<TweetModel>();
+                    
                     List<TweetEntity> tweetList =
                     _twitterHttpClient.GetUserTweetList(friend.UserId, _MaxTweetsToRetrieve, true);
-                    //friend.TweetRetweetModelList = tweetList.Select(GenerateTweetModelFrom).ToList();
                     tweetModelList = tweetList.Select(GenerateTweetModelFrom).ToList();
                     Console.WriteLine("HERE " + friend.UserName + " " + tweetModelList.Count);
                     Wrapper.TweetModelList.AddRange(tweetModelList);
@@ -81,7 +82,7 @@ namespace _4600Project
                         MessageBox.Show($"{Wrapper.TweetModelList.Count}");
                     }*/
 
-                    break;
+                    
                }
 
                 catch (Exception exception)
@@ -89,6 +90,7 @@ namespace _4600Project
                     Console.WriteLine($"CreatTweetModelList => {exception.Message}");
                 }
             }
+          
         }
 
         /// <summary>
